@@ -1,0 +1,43 @@
+#!/bin/bash
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run this script with sudo"
+  exit
+fi
+
+echo "Creating /usr/local/bin/php"
+if [[ -f /usr/local/bin/php ]]
+  then echo "/usr/local/bin/php exists, skipping..."
+  else cp php /usr/local/bin/php
+  chmod +x /usr/local/bin/php
+fi
+
+echo "Creating /usr/local/bin/phpcs"
+if [[ -f /usr/local/bin/phpcs ]]
+  then echo "/usr/local/bin/phpcs exists, skipping..."
+  else cp phpcs /usr/local/bin/phpcs
+  chmod +x /usr/local/bin/phpcs
+fi
+
+echo "Creating /usr/local/bin/phpcbf"
+if [[ -f /usr/local/bin/phpcbf ]]
+  then echo "/usr/local/bin/phpcbf exists, skipping..."
+  else cp phpcbf /usr/local/bin/phpcbf
+  chmod +x /usr/local/bin/phpcbf
+fi
+
+docker compose build --pull
+docker compose up -d
+
+# Install composer packages
+docker exec -ti phpcsc composer global update
+
+echo ""
+echo "Currently installed versions:"
+echo ""
+echo "🌍 PHP:"
+php -v
+echo ""
+echo "👃 CodeSniffer:"
+phpcs --version
+echo ""

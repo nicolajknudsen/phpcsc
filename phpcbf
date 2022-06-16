@@ -1,0 +1,2 @@
+#!/bin/bash
+docker exec -i phpcsc /root/.composer/vendor/squizlabs/php_codesniffer/bin/phpcbf "$@"

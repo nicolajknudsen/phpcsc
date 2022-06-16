@@ -1,0 +1,9 @@
+name: phpcsc
+
+services:
+  app:
+    image: phpcsc
+    container_name: phpcsc
+    build: .
+    stdin_open: true
+    restart: always

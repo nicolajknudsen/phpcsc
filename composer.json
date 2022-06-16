@@ -1,0 +1,26 @@
+{
+    "type": "project",
+    "authors": [
+        {
+            "name": "Nicolaj Knudsen"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:nicolajknudsen/modified-drupal-coding-standard"
+        }
+    ],
+    "require": {
+        "squizlabs/php_codesniffer": "*",
+        "nicolajknudsen/modified-drupal-coding-standard": "dev-master",
+        "dealerdirect/phpcodesniffer-composer-installer": "*"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
