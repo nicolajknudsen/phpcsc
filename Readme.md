@@ -4,19 +4,19 @@ This small project exposes a php executable from a container instead of installi
 
 Based on this answer on SO: https://stackoverflow.com/a/52421923.
 
-The 'start' script creates the container and the local executables in `/usr/local/bin`. **Note that it might conflict with your locally installed php.**
+The 'start' script creates the container and the local executables in `/usr/local/bin`, but won't override existing scipts if they exist. **Note that it might conflict with your locally installed php.**
 
-This project is written on Ubuntu, but it should be easy to modify for other OS'es.
+This project is written for Ubuntu, but it should be easy to modify for other platforms.
 
 ### Docker setup
 
-This project requires docker and docker compose version > 4.2.
+This project requires docker with docker compose, version 4.2 or above.
 
-Follow the official guides. This project is only tested on Ubuntu with the `docker.io` package.
+Follow the official guides for installation. This project is only tested on Ubuntu with the `docker.io` package.
 
 ### VS Code setup
 
-Add the extension PHP Sniffer & Beautifier for VS Code (valeryanm.vscode-phpsab).
+Add the extension [PHP Sniffer & Beautifier for VS Code (valeryanm.vscode-phpsab)](https://github.com/valeryan/vscode-phpsab).
 
 Configure the extension; for easy configuration place these lines in settings.json:
 
