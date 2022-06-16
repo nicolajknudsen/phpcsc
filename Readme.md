@@ -8,6 +8,13 @@ The 'start' script creates the container and the local executables in `/usr/loca
 
 This project is written for Ubuntu, but it should be easy to modify for other platforms.
 
+### Ruleset
+The rulesets are loaded into the container and made visible for phpcs/phpcbf by [this excellent composer package](https://bestofphp.com/repo/DealerDirect-phpcodesniffer-composer-installer).
+Any ruleset loaded by composer this way will automatically be made visible. The default is [modified ruleset](https://github.com/nicolajknudsen/modified-drupal-coding-standard) based on the official [Drupal coding standard](https://www.drupal.org/project/coder). 
+But you can change `composer.json` to point at any custom ruleset, just edit the relevant entries under 'repositories' and 'require'. Remember to update "phpsab.standard" in your settings.json.
+
+Useful resources for creating and modifying rulesets [1](https://pear.php.net/package/PHP_CodeSniffer/) and [2](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Customisable-Sniff-Properties).
+
 ### Docker setup
 
 This project requires docker with docker compose, version 4.2 or above.
